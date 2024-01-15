@@ -16,6 +16,7 @@
         if ("OTPCredential" in window) {
             alert('OTPCredential')
             window.addEventListener("DOMContentLoaded", (e) => {
+                alert("DOM fully loaded and parsed");
                 const input = document.querySelector('input[autocomplete="one-time-code"]');
                 if (!input) return;
                 // Set up an AbortController to use with the OTP request
