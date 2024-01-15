@@ -10,9 +10,11 @@
 <body>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" />
 
+
     <script>
         // Detect feature support via OTPCredential availability
         if ("OTPCredential" in window) {
+            alert('OTPCredential')
             window.addEventListener("DOMContentLoaded", (e) => {
                 const input = document.querySelector('input[autocomplete="one-time-code"]');
                 if (!input) return;
@@ -35,10 +37,11 @@
                         // When the OTP is received by the app client, enter it into the form
                         // input and submit the form automatically
                         input.value = otp.code;
+                        alert(`otp: ${otp}`)
                         if (form) form.submit();
                     })
                     .catch((err) => {
-                        console.error(err);
+                        alert(`err: ${err}`);
                     });
             });
         }
